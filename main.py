@@ -22,11 +22,10 @@ BASE_PATHS = [
     r"G:\Meu Drive\Arqs.Dia",
     r"H:\Meu Drive\Arqs.Dia"
 ]
-CACHE_TIME = timedelta(minutes=5)  # Verifica atualizações a cada 5 minutos
+CACHE_TIME = timedelta(minutes=5) 
 
-# =============================================
+
 # ESTRUTURA DE CACHE INTELIGENTE
-# =============================================
 class FileCache:
     def __init__(self):
         self.data = {}
@@ -63,9 +62,7 @@ class FileCache:
 
 cache = FileCache()
 
-# =============================================
 # CONFIGURAÇÃO DOS ARQUIVOS
-# =============================================
 FILE_CONFIG = {
     "Base_GDM": {"filename": "Base_GDM.xlsx", "type": "excel"},
     "BASE_Grupo_VD": {"filename": "BASE_Grupo_VD.xlsx", "type": "excel"},
@@ -100,9 +97,7 @@ FILE_CONFIG = {
     }
 }
 
-# =============================================
 # FUNÇÕES AUXILIARES
-# =============================================
 def find_file(filename: str) -> Optional[str]:
     """Localiza arquivos nos diretórios configurados"""
     for path in BASE_PATHS:
@@ -142,9 +137,7 @@ def safe_read_file(filepath: str, config: dict) -> pd.DataFrame:
         logger.error(f"Falha na leitura de {filepath}: {str(e)}")
         raise
 
-# =============================================
 # ENDPOINTS PRINCIPAIS
-# =============================================
 @app.on_event("startup")
 async def startup_event():
     """Carrega todos os arquivos ao iniciar"""
