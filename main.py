@@ -249,8 +249,4 @@ async def list_files():
     return available
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    uvicorn.run(app, host="0.0.0.0", port=8080)
-=======
     uvicorn.run(app, host="0.0.0.0", port=8000)
->>>>>>> daab96d1a442c167dc67be43641fbc8c30f565c4
